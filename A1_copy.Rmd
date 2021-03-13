@@ -32,6 +32,28 @@ was used for RNA analysis [@petrossian2018]. The treatment group was given a
 palbociclib and estrogen treatment and the control was treated with DMSO. Both 
 the control and the treatment group recieved the treatment for 3 days.
 
+The conclusion from the paper was that transcriptionally functional ER that is 
+involved in cell cycle is required for CDK4/6 inhibitor response 
+[@petrossian2018]. In the C4-12 cell line, they transfected the cells with a 
+transcriptionally function ER, but it was shown that the ER that was transfected 
+was not involved in cell proliferation. The C4-12ERaERE cell line was subjected 
+to an estrogen or DMSO (control) for five days [@petrossian2018]. There was no 
+change in the cell vitality in the experimental group, as shown in Supplementary 
+Figure 1 below. 
+
+![**Supplementary Figure 1 from Petrossian et al., 2018**](A2_figures/suppFig1.jpg)
+
+The authors then used the C4-12ERaERE and MCF-7aro cell lines from the data to 
+test the response to palbociclib, a CDK4/6 inhibitor. It is known that the ER in 
+MCF-7aro cell line is involved in cell cycle proliferation. As shown in Figure 
+1, cell proliferation was reduced in the cell lines with an active ER that 
+drives cell cycle (LTEDaro is another cell line the authors used that is not in 
+the data) [@petrossian2018], while there was no major effects on the C4-12ERaERE 
+cells that did not have ER involved in cell cycle progression.. This signifies 
+that palbociclib response is dependent on estrogen-activated ER.
+
+![**Figure 1 from Petrossian et al., 2018**](A2_figures/fig1.jpg)
+
 
 ### Data Downloading and Setup
 
