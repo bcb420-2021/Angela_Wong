@@ -175,13 +175,15 @@ the normalized dataset.**
 
 Next, I graphed the results from the BH calculations onto a MA plot of all the 
 genes in the dataset. I wanted to sort the differentially expressed significant 
-genes from the not differentially expressed ones. The code in the chunk below is 
-not completely my own work.
+genes from the not differentially expressed ones. In the code below, I used 
+`limma::plotMD()` instead of `limma::plotMA()` because both functions create a 
+MA plot, and `plotMD()` adds colour coding for highlighted points. The code in 
+the chunk below is not completely my own work.
 ```{r}
 # re-organize the order of the genes in differential_results to match the order
-# in the expression data. Without this step, the differentially expressed genes 
-# will be a blob on the plot because the order does not match
-differential_results_copy <- differential_results[rownames(expData), ]
+# in the differential_expression data. Without this step, the differentially 
+# expressed genes will be a blob on the plot because the order does not match
+differential_results_copy <- differential_results[rownames(differential_expression), ]
 
 # create a character vector of all the genes in differential_results_copy with 
 # the appropriate classification
@@ -291,18 +293,21 @@ all of the Ensembl IDs, so I chose to ignore those genes (DDX11L2, DGCR5,
 PRICKLE2-AS1, SFTA3, SNORA63, SNORA70, SNORA72, SNORD28, SNORD30, SNORD33, 
 SNORD38B, SNORD63, SNORD81).
 
+**For all of the analyses below, I set the "Significance threshold" to Benjamini-
+Hochberg FDR and the "User threshold" to 0.05.**
+
 
 ### All Differentially Expressed Genes
 
-**There was 1086 GO biological process (GO:BP) terms, 46 KEGG terms, 46 Reactome 
-(REAC) terms, and 24 WikiPathways (WP) terms out of the 5193 differentially 
-expressed significant genes. This data includes the ambiguous genes that have 
-GO annotations.**
+**There was 1086 GO biological process (GO:BP) genesets, 46 KEGG genesets, 46 
+Reactome (REAC) genesets, and 24 WikiPathways (WP) genesets out of the 5193 
+differentially expressed significant genes. This data includes the ambiguous 
+genes that have GO annotations.**
 ![](A2_Figures/all.png)
 
 **Without the ambiguous genes, the results are actually different, which was 
-interesting. The number of terms increased for all the data sources: 1116 GO:BP 
-terms, 49 KEGG terms, 47 REAC terms, and 25 WP terms.**
+interesting. The number of genesets increased for all the data sources: 1116 
+GO:BP genesets, 49 KEGG genesets, 47 REAC genesets, and 25 WP genesets**
 ![](A2_Figures/all_noAm.png)
 
 The top 15 GO:BP terms in the combined differentially expressed genes, including 
@@ -347,13 +352,14 @@ has less REAC terms than the down-regulated genes.**
 ### Up-Regulated Genes
 
 **In total, there were 2482 up-regulated genes in the 5193 significant genes. 
-Out of the 2482 genes, there were 139 GO:BP terms, 2 KEGG terms, 2 REAC terms, 
-and no WP terms (143 terms overall). This includes the ambiguous genes.**
+Out of the 2482 genes, there were 139 GO:BP genesets, 2 KEGG genesets, 2 REAC 
+genesets, and no WP genesets (143 terms overall). This includes the ambiguous 
+genes.**
 ![](A2_Figures/upregulated.png)
 
-**Excluding the ambiguous genes, the number of KEGG, REAC, and WP terms did not 
-change. Only GO:BP terms changed from 139 to 155 terms, adding up to 159 terms 
-in total.**
+**Excluding the ambiguous genes, the number of KEGG, REAC, and WP genesets did 
+not change. Only GO:BP genesets changed from 139 to 155 genesets, adding up to 
+159 genesets in total.**
 ![](A2_Figures/up_noAm.png)
 
 The top 15 GO:BP terms in the up-regulated genes, with the ambiguous genes (top 
@@ -388,13 +394,14 @@ the total and down-regulated genes.**
 ### Down-Regulated Genes
 
 **In total, there were 2711 down-regulated genes in the 5193 significant genes. 
-Out of the 2711 genes, there were 997 GO:BP terms, 39 KEGG terms, 61 REAC terms, 
-and 21 WP terms (1118 terms overall). This includes the ambiguous genes.**
+Out of the 2711 genes, there were 997 GO:BP genesets, 39 KEGG genesets, 61 REAC 
+genesets, and 21 WP genesets (1118 genesets overall). This includes the 
+ambiguous genes.**
 ![](A2_Figures/downregulated.png)
 
-**Excluding the ambiguous genes, the number of KEGG and WP terms did not change. 
-The GO:BP and REAC terms changed from 997 to 1008 terms and from 61 to 65 terms, 
-respectively, which adds up to 1133 terms in total.**
+**Excluding the ambiguous genes, the number of KEGG and WP genesets did not 
+change. The GO:BP and REAC genesets changed from 997 to 1008 genesets and from 
+61 to 65 genesets, respectively, which adds up to 1133 genesets in total.**
 ![](A2_Figures/down_noAm.png)
 
 The top 15 GO:BP terms in the down-regulated genes, with ambiguous genes (top 
